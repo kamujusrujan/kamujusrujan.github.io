@@ -1,16 +1,19 @@
---
-
-layout: post
-title:  "Why another blog?"
-date:   2025-11-17 00:18:15 +0530
-categories: personal
 ---
-This is purely for fun website. I am too lazy to note down my points in a note taking app. Hence, I thought it'd better if I do it this way. 
-I wont have to remember the passwords, or install any app.
+layout: post
+title:  "Why another useless blog?"
+date:   2025-11-18 01:24:12 +0530
+categories: Personal 
+---
+
+To this I answer why not? Why not share my opinion on things which doesnt matter in the long run, and we will just figth tooth and nail to prove our point. Which again is pointless. In any case, If I need to taunt my expertise on matter, this will be my bible. Put all my brain dump here so I can be of clean.
+
+And, to the other point. I need to have a place to store my points related to the work/project/research I am doing. I am too lazy to put it in a book, and even lazier to store it safely and revise. So, I will use this to store and access my stuff. Pretty neat.
+
+Lets start with my opinion on how to write a good software. 
+In my opinion, any piece of software should solve one problem, and only one problem and keep it working for atleast 2 years. There is no point in coming up with solution which wont even last in 2 months. So considering this, I came up with a plan.
 
 ### Steps for building good software 
 
-We need to come up with the philosophy for software engineering. 
 
 1. Stability 
     - We need the software to run atleast 5-10 years without any issue. To do that, we need to chose the right framework which has great support for long term usage, and has minimal changes throughout. 
@@ -25,5 +28,6 @@ We need to come up with the philosophy for software engineering.
    - "Anything that can go wrong will go wrong" . The system should be recover itself from any failure. The downtime of more than a [PARTICULAR THRESHOLD] 
    - *ASSUME FAILURE SCENARIOS EVERYWHERE*. Consider the user as 5 year old, that have access to any/all files in system. 
    - Good engineering lies in simplifying. Rewrite the system in as many less lines as possible. This ensures code is efficient, scalable, and mainly readable. 
+
 
 > It takes atleast 3 attempts to understand anything. Software is the no different. 
