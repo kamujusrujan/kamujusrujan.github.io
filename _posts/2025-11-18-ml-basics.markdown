@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "Basics of Basics - Machine Learning"
+date:   2025-11-18 02:48:12 +0530
+categories: Notes
+---
+
+
+This is notes for my Statistics and Probability understanding. This should help me get a life and notes regarding the topic so I can easily look up for interview prep or for some other reasons.
+
+Alright,lets start with basics
+
+#### What is Probability?
+
+WORK IN PROGRESS
+
+
+#### Course Reference : 
+Course link : https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/ 
+
+The flow chart drive link : <TODO>
