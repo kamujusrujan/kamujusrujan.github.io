@@ -1,18 +1,103 @@
 ---
 layout: post
-title:  "Basics of Basics - Machine Learning"
-date:   2025-11-18 02:48:12 +0530
+title:  "Basics of Basics - Probability and Statistics"
+date:   2025-11-21 02:48:12 +0530
 categories: Notes
 ---
 
 
 This is notes for my Statistics and Probability understanding. This should help me get a life and notes regarding the topic so I can easily look up for interview prep or for some other reasons.
 
-Alright,lets start with basics
+Alright,lets start with basics.
 
-#### What is Probability?
+## THEORY
 
-WORK IN PROGRESS
+### What is Statistics?
+
+Consider we have a huge amount of observations (any observations, mostly people will consider coin toss, but lets move away  from that). So, usually this data will have lots of noise, distributions, anomolies, and what not. This is how generally the data looks like in real life.
+
+So now, given this data (along with its noise) What can I do? how to use this data efficetively, either to make a good decision or just to understand the world view a bit better. This is where the Statistics (or the entire branch of statistical mathematics) comes into picture.
+
+Now, I know where I can use stats, and what next? what is probability and why do I have all this mess about Naive Bayes and what not. We understood what we can do with statistics, but not how we can do. This is where all the fancy terms come. Probability, Permutations and Combinations, Hypothesis testing and all the other technical terms you have heard. We use all these techniques to come up with a better model of understanding about the data (this might be entire universe, entire population of earth, or the understanding of the browniam motion of the atoms)
+
+Might look very easy, afterall take the observations, and check them correct? but what if the entire data is not visible to you, but only the portion is. How do we take this small portion of data, usually is the case (from infinite set of unobserved data) and make global assumptions? THIS!! This is what makes Statistics fun. 
+
+_UNDERSTANDING THE PRINCIPLES BEHIND THE DATA IS PARAMOUNT HERE_
+
+Now, I have a sample (small portion of data) and I need to make assumptions about the samples which can possibly hold true to the entire population. So, we talk in the terminology of ratios, chances, percentages and etc. We call chance of something happening as Probability, and is widely used to draw conclusion from samples.   
+
+If we understand how to get valuable insights from sample, we can later extrapolate that to the population.  
+
+### What is probability? 
+
+Logical, fixed rules, fixed chances about the samples, and which get updated as we see more data? That is exactly what I need, and this is exactly what probability does.
+
+Basically, give a chance of event A happening? what should we do? see the times the event happening in last few days and tell me the likely chance. 
+
+$$ Probability A =  \frac{\text{Event}(A)}{\text{total events}}  $$
+ 
+Cave man approach, we need to figure out the number of times an event might happen else we cant figure out the probability. We will use Permutation and Combinations for this. 
+
+Perhaps read this : https://www.behind-the-enemy-lines.com/2008/01/are-you-bayesian-or-frequentist-or.html
+
+
+#### What is Permutations and combinations ? 
+This is _PERMUTATION_ :  $$\mathrm{P}_{k}^{n} = \frac{n!}{(n - k)!} $$  and here the order of events doesnt matter. (abc is just sa same as bca, cab etc)
+
+This is _COMBINATION_ :  $$\mathrm{C}_{k}^{n} = \frac{n!}{k!(n - k)!} $$  and here the order of events doesnt matter. (abc is just sa same as bca, cab etc)
+
+#### multiplication rule of probability
+If you need to know what is the chances of two *independent* event happening *together*, we just need to multiply them together (common sense)
+
+If there are independent : $$ P(A \cap B) = P(A) * P(B) $$
+
+else : $$ P(A \cap B) = P(A)*
+P(B|A)
+$$  
+
+#### Conditional Probability 
+
+$$ P(B|A) $$
+ is conditional probability.If we need to handle scenarios, where we need to have a outcome conditioned another outcome. Can be done by *conditional probability* here. AKA how does the probability of an event change if we have extra information.
+
+
+#### Law of total Probability 
+Event chance of event A is same as Event occurance of A and together with all the possiblity of Event B. Basically it is saying, probability of A and b=1,and b=2 .... b=infinity will give me the probability of A.
+$$ P(A) = P(A \cap B1)  + P(A \cap B2) + P(A \cap B2) ....  $$
+
+-- TODO : Why this 
+
+#### BAYES THEOREM
+
+MOST IMPORTANT OUT OF ALL. 
+
+$$ 𝑃(𝐵|𝐴)  = 
+𝑃(𝐴|𝐵)
+ ⋅ 𝑃(𝐵) $$
+Bayes’ rule tells us how to ‘invert’ conditional probabilities, i.e. to find 𝑃(𝐵|𝐴) from 𝑃(𝐴|𝐵)
+
+-- TODO : rationalization of bayes in simpler terms, Bayes rate fallacy, Working examples 
+
+more details : https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## FORMULAS 
 
 
 #### Course Reference : 
