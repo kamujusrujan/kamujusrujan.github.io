@@ -67,6 +67,12 @@ $$ P(A) = P(A \cap B1)  + P(A \cap B2) + P(A \cap B2) ....  $$
 
 -- TODO : Why this 
 
+#### Rules of probability 
+ - Rule 1. 𝑃(𝐴𝑐) = 1 − 𝑃(𝐴).
+ - Rule 2. If 𝐿 and 𝑅 are disjoint then 𝑃 (𝐿 ∪ 𝑅) = 𝑃 (𝐿) + 𝑃 (𝑅).
+ - Rule 3 : If 𝐿 and 𝑅 are not disjoint, we have the inclusion-exclusion principle:
+                𝑃 (𝐿 ∪ 𝑅) = 𝑃 (𝐿) + 𝑃 (𝑅) − 𝑃 (𝐿 ∩ 𝑅)
+
 #### BAYES THEOREM
 
 MOST IMPORTANT OUT OF ALL. 
@@ -77,6 +83,19 @@ $$ 𝑃(𝐵|𝐴)  =
 Bayes’ rule tells us how to ‘invert’ conditional probabilities, i.e. to find 𝑃(𝐵|𝐴) from 𝑃(𝐴|𝐵)
 
 -- TODO : rationalization of bayes in simpler terms, Bayes rate fallacy, Working examples 
+
+
+### Glossary 
+
+- Discret Sample Space : is one that is listable, it can be either finite or infinite.
+
+- Experiment: a repeatable procedure with well-defined possible outcomes.
+- Sample space: the set of all possible outcomes. We usually denote the sample space by Ω, sometimes by 𝑆.
+- Event: An event is a collection of outcomes, i.e. an event is a subset of the sample space Ω 
+- Probability function: a function giving the probability for each outcome
+- Probability density: a continuous distribution of probabilities.
+- Random variable: a random numerical outcome
+
 
 more details : https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/
 
