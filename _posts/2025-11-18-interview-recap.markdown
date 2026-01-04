@@ -23,107 +23,118 @@ Lets start with what all interviews I have given and what are the learnings
 <details>
 <summary> Meesho Interview </summary>
 
-```
-53. Maximum Subarray
+
+- Things to be covered here : 
+    - SQL queries 
+        - rank functions, window functions 
+    - Leet code more practice
+    - End to End training from scratch
+    - pyspark (not necessary)
+    - Over fitting and under fitting how and why
+    - Class imbalance how to handle
+    - Central Limit Theorem
+    -  
+ 
+
+        53. Maximum Subarray
 
 
-Given an integer array nums, find the subarray with the largest sum, and return its sum.
+        Given an integer array nums, find the subarray with the largest sum, and return its sum.
 
-Example 1:
-Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-Output: 6
-Explanation: The subarray [4,-1,2,1] has the largest sum 6.
-
-
-Example 2:
-Input: nums = [1]
-Output: 1
-Explanation: The subarray [1] has the largest sum 1.
+        Example 1:
+        Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+        Output: 6
+        Explanation: The subarray [4,-1,2,1] has the largest sum 6.
 
 
-Example 3:
-Input: nums = [5,4,-1,7,8]
-Output: 23
-Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+        Example 2:
+        Input: nums = [1]
+        Output: 1
+        Explanation: The subarray [1] has the largest sum 1.
 
 
-#############################
+        Example 3:
+        Input: nums = [5,4,-1,7,8]
+        Output: 23
+        Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 
-result = -inf
-temp = {}
-for i in ele : 
-	result  = max(result,i)
+        #############################
 
 
-============================
-
-Implement pow(x, n), which calculates x raised to the power n (i.e., xn). 
-Example 1:
-Input: x = 2.00000, n = 10
-Output: 1024.00000
-
-Example 2:
-Input: x = 2.10000, n = 3
-Output: 9.26100
-n_ = abs(n)
+        result = -inf
+        temp = {}
+        for i in ele : 
+            result  = max(result,i)
 
 
-for i in range(n_) : 
+        ============================
 
-##########################
+        Implement pow(x, n), which calculates x raised to the power n (i.e., xn). 
+        Example 1:
+        Input: x = 2.00000, n = 10
+        Output: 1024.00000
 
-# customer table 
-Customer ID int 
-Name varchar
-City varchar 
-
-# order_table 
-Order ID
-Customer ID
-Order Date
-Order Total / Amount
+        Example 2:
+        Input: x = 2.10000, n = 3
+        Output: 9.26100
+        n_ = abs(n)
 
 
-Find the total number of orders placed by each customer, excluding orders placed in June.
+        for i in range(n_) : 
 
--> Customer ID, Order ID, Order date 
+        ##########################
 
-	-> Customer Name, Number of Order 
-		(DD/MM/YYYY)
-->  
-	select cm.customer_name , count(order-id)
-	from customer_master cm
-	join order_table ot
-	on cm.customer_id = order.customer_id
-	where  '01-06-2025' < ot.order_date < '31-06-2025'
-	group by customer_id
+        # customer table 
+        Customer ID int 
+        Name varchar
+        City varchar 
 
--> 
-	select customer_id, sum(order_amount) ,  as rank  as total_amount 
-	from order_table group by customer_id order by total_amount desc
-
-	rank function ? 
-	
--> window functions ? 
-
-left vs left anti join 
+        # order_table 
+        Order ID
+        Customer ID
+        Order Date
+        Order Total / Amount
 
 
+        Find the total number of orders placed by each customer, excluding orders placed in June.
 
-select * , customer_city from customer_master
- # default 
+        -> Customer ID, Order ID, Order date 
 
-# pyspark ? 
+            -> Customer Name, Number of Order 
+                (DD/MM/YYYY)
+        ->  
+            select cm.customer_name , count(order-id)
+            from customer_master cm
+            join order_table ot
+            on cm.customer_id = order.customer_id
+            where  '01-06-2025' < ot.order_date < '31-06-2025'
+            group by customer_id
+
+        -> 
+            select customer_id, sum(order_amount) ,  as rank  as total_amount 
+            from order_table group by customer_id order by total_amount desc
+
+            rank function ? 
+            
+        -> window functions ? 
+
+        left vs left anti join 
 
 
 
-[8*32] -> 8,32
+        select * , customer_city from customer_master
+        # default 
 
-[8,32,32]
+        # pyspark ? 
 
-1 feature -> x - mean / variance 
 
-mean = sum  / count --> running mean and variance (scale and shift)
-```
+
+        [8*32] -> 8,32
+
+        [8,32,32]
+
+        1 feature -> x - mean / variance 
+
+        mean = sum  / count --> running mean and variance (scale and shift)
 </details>

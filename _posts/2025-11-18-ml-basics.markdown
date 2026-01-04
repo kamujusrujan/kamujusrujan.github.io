@@ -6,11 +6,11 @@ categories: Notes
 ---
 
 
-This is notes for my Statistics and Probability understanding. This should help me get a life and notes regarding the topic so I can easily look up for interview prep or for some other reasons.
-
-Alright,lets start with basics.
+This is notes for my Statistics and Probability understanding. 
 
 ## THEORY
+
+
 
 ### What is Statistics?
 
@@ -28,11 +28,18 @@ Now, I have a sample (small portion of data) and I need to make assumptions abou
 
 If we understand how to get valuable insights from sample, we can later extrapolate that to the population.  
 
+
+There are two schools of thoughts here : Bayesian and Frequentist
+
+- Frequentist : Relies predominantly on the data observed, and draws conclusions from that. Probability is a function a number of times the event occured.
+
+- Bayesian : Here, we have prior beliefs, knowledge which we can use to get the analysis we need, and update the beliefs based on the new set of information we see. This is a foundation of bayes theorem and many ML models.
+
 ### What is probability? 
 
-Logical, fixed rules, fixed chances about the samples, and which get updated as we see more data? That is exactly what I need, and this is exactly what probability does.
+Basically, defines the chances of event A happening. 
 
-Basically, give a chance of event A happening? what should we do? see the times the event happening in last few days and tell me the likely chance. 
+how => see the times the event happening in last few days and tell me the likely chance. 
 
 $$ Probability A =  \frac{\text{Event}(A)}{\text{total events}}  $$
  
@@ -41,12 +48,27 @@ Cave man approach, we need to figure out the number of times an event might happ
 Perhaps read this : https://www.behind-the-enemy-lines.com/2008/01/are-you-bayesian-or-frequentist-or.html
 
 
+
 #### What is Permutations and combinations ? 
+
 This is _PERMUTATION_ :  $$\mathrm{P}_{k}^{n} = \frac{n!}{(n - k)!} $$  and here the order of events doesnt matter. (abc is just sa same as bca, cab etc)
 
 This is _COMBINATION_ :  $$\mathrm{C}_{k}^{n} = \frac{n!}{k!(n - k)!} $$  and here the order of events doesnt matter. (abc is just sa same as bca, cab etc)
 
-#### multiplication rule of probability
+
+#### Independent event 
+- Two events are independent if knowledge or occurance of 1 event doesnt not effect the probability of the other event. (Indepedent of each other)
+- consecutive coin tosses are independent of each other, hence Independent Events
+
+- A is independent of 𝐵 if
+ $$ 𝑃(𝐴 \mid 𝐵) = 𝑃(𝐴) $$
+
+
+### RULES OF PROBABILITY
+
+
+
+#### Multiplication rule of probability
 If you need to know what is the chances of two *independent* event happening *together*, we just need to multiply them together (common sense)
 
 If there are independent : $$ P(A \cap B) = P(A) * P(B) $$
@@ -60,35 +82,232 @@ $$
 $$ P(B|A) $$
  is conditional probability.If we need to handle scenarios, where we need to have a outcome conditioned another outcome. Can be done by *conditional probability* here. AKA how does the probability of an event change if we have extra information.
 
+$$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $$
+
+
+#### Additional rule of probability
+
+If A and B are any two events of a random experiment and P is a probability function then the probability of happening of at least one of the events is defined as 
+P(A or B) = P(A) + P(B) - P(A and B), also written as  
+$$ P(A\cup B)=P(A)+P(B)-P(A\cap B) $$
+
+
 
 #### Law of total Probability 
-Event chance of event A is same as Event occurance of A and together with all the possiblity of Event B. Basically it is saying, probability of A and b=1,and b=2 .... b=infinity will give me the probability of A.
+Law of Total Probability breaks down the probability of an event $$ (A) $$ by summing its conditional probabilities across a partition (mutually exclusive and exhaustive events like  $$ (B_{1},B_{2},...B_{n}) $$ of the sample space, using the formula: $$ P(A)= sum P(A|B_{i})P(B_{i}) $$ . It's used when $$P(A)$$ isn't known directly but can be found by considering how $$ A $$ occurs within different scenarios $$ (B_{i}) $$ that cover all possibilities
+
 $$ P(A) = P(A \cap B1)  + P(A \cap B2) + P(A \cap B2) ....  $$
 
--- TODO : Why this 
+Using the multiplication rule for conditional probability, this becomes:
+$$ P(A)=P(A|B_{1})P(B_{1})+P(A|B_{2})P(B_{2})+...+P(A|B_{n})P(B_{n}) $$ 
 
-#### Rules of probability 
- - Rule 1. 𝑃(𝐴𝑐) = 1 − 𝑃(𝐴).
- - Rule 2. If 𝐿 and 𝑅 are disjoint then 𝑃 (𝐿 ∪ 𝑅) = 𝑃 (𝐿) + 𝑃 (𝑅).
- - Rule 3 : If 𝐿 and 𝑅 are not disjoint, we have the inclusion-exclusion principle:
-                𝑃 (𝐿 ∪ 𝑅) = 𝑃 (𝐿) + 𝑃 (𝑅) − 𝑃 (𝐿 ∩ 𝑅)
 
+Good exercise : check out the probability urn examples
 #### BAYES THEOREM
 
 MOST IMPORTANT OUT OF ALL. 
 
-$$ 𝑃(𝐵|𝐴)  = 
-𝑃(𝐴|𝐵)
- ⋅ 𝑃(𝐵) $$
-Bayes’ rule tells us how to ‘invert’ conditional probabilities, i.e. to find 𝑃(𝐵|𝐴) from 𝑃(𝐴|𝐵)
+$$ 𝑃(𝐵 \mid 𝐴)  =   𝑃(𝐴 \mid 𝐵) ⋅ 𝑃(𝐵)  / P(A) $$
 
--- TODO : rationalization of bayes in simpler terms, Bayes rate fallacy, Working examples 
+- Bayes’ rule tells us how to ‘invert’ conditional probabilities, i.e. to find $$ 𝑃(𝐵 \mid 𝐴) $$  from  $$ 𝑃(𝐴 \mid 𝐵) $$
+- In practice, we can get P(A) from the law of total probability theorem
+
+
+Proof : 
+The key point is that 𝐴 ∩ 𝐵 is symmetric in 𝐴 and 𝐵. So the multiplication rule says
+
+-   $$ P(A\cap B) $$ is the same as  $$ P(B\cap A) $$
+ then , 
+- $$ P(A \mid B)=P(A \cap B)/P(B) $$ and  $$ P(B\mid A)=P(A\cap B)/P(A) $$
+
+- leading to  $$ P(A \mid B) * P(B) = P(B\mid A) P(A) $$  
+- and then rearrange to get Bayes' Theorem:  $$ 𝑃(𝐵 \mid 𝐴)  =   𝑃(𝐴 \mid 𝐵) ⋅ 𝑃(𝐵)  / P(A) $$
+
+Note : A common mistake is to confuse the meanings of $$ 𝑃(𝐴 \mid 𝐵) $$ and $$ 𝑃(𝐵 \mid 𝐴) $$ . They can be very different. Will be explained in the fallacy 
+
+#### Bayes Rate Fallacy 
+
+- The base rate fallacy is one of many examples showing that it’s easy to confuse the meaning of $$𝑃(𝐵\mid 𝐴)$$  and $$𝑃(𝐴\mid 𝐵)$$ when a situation is described in words
+
+
+Example  :  The Base Rate Fallacy
+1 . Consider a routine screening test for a disease. Suppose the frequency of the disease in the population (base rate) is 0.5%. The test is fairly accurate with a 5% false positive rate and a 10% false negative rate. You take the test and it comes back positive. What is the probability that you have the disease?
+Solution: 
+     We’ll use the following notation for the relevant events:
+            𝐷+ = ‘you have the disease’
+            𝐷− = ‘you do not have the disease
+            𝑇 + = ‘you tested positive’
+            𝑇 − = ‘you tested negative’.
+
+We are given 
+
+𝑃(𝐷+) = 0.005 and therefore 𝑃(𝐷−) = 0.995.
+
+The false positive and false negative rates are (by definition) conditional probabilities.
+𝑃(false positive) = 𝑃(𝑇 +|𝐷−) = 0.05 and 𝑃(false negative) = 𝑃(𝑇 −|𝐷+) = 0.1.
+
+The complementary probabilities are known as the true negative and true positive rates:
+𝑃(𝑇 −|𝐷−) = 1 − 𝑃(𝑇 +|𝐷−) = 0.95 and 𝑃(𝑇 +|𝐷+) = 1 − 𝑃(𝑇 −|𝐷+) = 0.9
+
+Remarks: This is called the base rate fallacy because the base rate of the disease in the population is so low that the vast majority of the people taking the test are healthy, and even with an accurate test most of the positives will be healthy people
+
+To summarize the base rate fallacy with specific numbers 95% of all tests are accurate does not imply 95% of positive tests are accurate
+
+
+Visualization: The figure below illustrates the base rate fallacy. The large blue rectangle represents all the healthy people. The much smaller orange rectangle represents the sick people. The shaded rectangle represents the people who test positive. The shaded area covers most of the orange area and only a small part of the blue area. Even so, the most of the shaded area is over the blue. That is, most of the positive tests are of healthy people.
+
+![Fallacy](/assets/bayes_fallacy.png)
+
+
+Bayes’ rule is a pillar of probability and statistics.
+We have seen that Bayes’ rule allows us to ‘invert’ conditional probabilities. When we study
+statistics we will see that the art of statistical inference involves deciding how to proceed
+when one (or more) of the terms on the right side of Bayes’ rule is unknown
+
+
+### Discrete Random Variable
+
+Definition: Let Ω be a sample space. A discrete random variable is a function
+
+𝑋 ∶ Ω → R
+
+that takes a discrete set of values. (Recall that R stands for the real numbers.) Why is 𝑋 called a random variable? It’s ‘random’ because its value depends on a random outcome of an experiment. And we treat 𝑋 like we would a usual variable: we can add it to other random variables, square it, and so on.
+
+#### Event 
+For any value 𝑎 we write 𝑋 = 𝑎 to mean the event consisting of all outcomes 𝜔 with 𝑋(𝜔) = a
+
+Subset of the sample space. 
+
+Example : You win if you roll an Odd Number ({1, 3, 5}). This is an event
+
+
+### Probability Mass Function
+Gives the probability of a all the possble values of Discrete random variable X = a from an event   
+
+$$  P(𝑎) = 𝑃(𝑋 = 𝑎) $$ 
+
+- We always have 0 ≤ 𝑝(𝑎) ≤ 1.
+- We allow 𝑎 to be any number. If 𝑎 is a value that 𝑋 never takes, then 𝑝(𝑎) = 0.
+
+
+
+#### Inequality Events 
+This describes the subset where the possible outcomes are less than or greater than a value. 
+
+For example 𝑋 ≤ 𝑎 is the set of all outcomes 𝜔 such that 𝑋(𝑤) ≤ 𝑎.
+
+
+#### Cumulative Distribution Function 
+describes the probability that a random variable $$X$$ will take a value less than or equal to a specific number $$x$$.
+
+$$F(x) = P(X \le x)$$
+
+
+
+The PMF (Probability Mass Function) asks: "What is the chance of rolling a 3?
+
+The CDF (Cumulative Distribution Function) asks: "What is the chance of rolling a 3 or less (1, 2, or 3)?
+
+![Visualization](/assets/viz_pmf_cdf.png)
+
+#### Properties of the cdf 𝐹
+The cdf 𝐹 of a random variable satisfies several properties:
+1. 𝐹 is non-decreasing. That is, its graph never goes down, or symbolically if 𝑎 ≤ 𝑏 then
+𝐹(𝑎) ≤ 𝐹(𝑏).
+2. 0 ≤ 𝐹(𝑎) ≤ 1.
+
+
+### Distributions 
+
+1. Bernoulli Distribution
+     - The Bernoulli distribution models one trial in an experiment that can result in either success or failure (Binary). This is the most important distribution and is also the simplest.
+     - A random variable 𝑋 has a Bernoulli distribution with parameter 𝑝 if:                 
+          -  𝑋 takes the values 0 and 1.
+          -  𝑃(𝑋 = 1) = 𝑝 and 𝑃 (𝑋 = 0) = 1 − p
+
+2. Binomial Distribution
+     - The binomial distribution Binomial(𝑛,𝑝), or Bin(𝑛,𝑝), models the number of successes in 𝑛 independent bernoulli trails
+     - There is a hierarchy here. A single Bernoulli trial is, say, one toss of a coin. A single binomial trial consists of 𝑛 Bernoulli trials
+     - 
+3. Geometrical Distribution
+     - A geometric distribution models the number of tails before the first head in a sequence of coin flips (Bernoulli trials).
+     - The geometric distribution gives the probability that the first occurrence of success requires k independent trials, each with success probability  p. If the probability of success on each trial is  p, then the probability that the  k-th trial is the first success is 
+      - $$ Pr(X=k)=(1-p)^{k-1} * p $$ 
+
+4. Uniform Distribution 
+     - The uniform distribution models any situation where all the outcomes are equally likely.
+     - $$ 𝑋 ∼ uniform(𝑁) $$
+5. Poisson Distribution
+     -  a Poisson distribution predicts how many times an event will happen in a fixed time/space (like calls per hour, defects per square meter) when events happen randomly, independently, at a constant average rate (λ, lambda)
+
+<!-- ![alt text](/assets/distributions.png) -->
+
+| Distribution | Range $$X$$ | PMF $$p(k)$$ | CDF $$F(x) = P(X \le x)$$ | Mean $$E[X]$$ | Variance $$\text{Var}(X)$$ | Parameters |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Bernoulli($$p$$)** | $$0, 1$$ | $$\begin{cases} 1-p & k=0 \\ p & k=1 \end{cases}$$ | $$\begin{cases} 1-p & 0 \le x < 1 \\ 1 & x \ge 1 \end{cases}$$ | $$p$$ | $$p(1 - p)$$ | $$p$$ |
+| **Binomial($$n, p$$)** | $$0, 1, \dots, n$$ | $$\binom{n}{k}p^k(1 - p)^{n - k}$$ | $$\sum_{i=0}^{\lfloor x \rfloor} \binom{n}{i}p^i(1-p)^{n-i}$$ | $$np$$ | $$np(1 - p)$$ | $$n, p$$ |
+| **Uniform($$n$$)** | $$1, 2, \dots, n$$ | $$\frac{1}{n}$$ | $$\frac{\lfloor x \rfloor}{n}$$ | $$\frac{n + 1}{2}$$ | $$\frac{n^2 - 1}{12}$$ | $$n$$ |
+| **Geometric($$p$$)** | $$0, 1, 2, \dots$$ | $$p(1 - p)^k$$ | $$1 - (1 - p)^{\lfloor x \rfloor + 1}$$ | $$\frac{1 - p}{p}$$ | $$\frac{1 - p}{p^2}$$ | $$p$$ |
+| **Poisson($$\lambda$$)** | $$0, 1, 2, \dots$$ | $$\frac{\lambda^k e^{-\lambda}}{k!}$$ | $$e^{-\lambda} \sum_{i=0}^{\lfloor x \rfloor} \frac{\lambda^i}{i!}$$ | $$\lambda$$ | $$\lambda$$ | $$\lambda$$ |
+
+
+More info : https://mathlets.org/mathlets/probability-distributions/
+
+
+### Continous Random Variables 
+All random variables assign a number to each outcome in a sample space. Whereas discrete random variables take on a discrete set of possible values, continuous random variables have a continuous set of values.
+
+#### Probability Density Function 
+- A random variable 𝑋 is continuous if there is a function 𝑓(𝑥) such that for any 𝑐 ≤ 𝑑 we have 𝑑 𝑃 (𝑐 ≤ 𝑋 ≤ 𝑑) = ∫ 𝑓(𝑥) 𝑑𝑥. 
+- The function 𝑓(𝑥) is called the probability density function (pdf)
+- The probability density function 𝑓(𝑥) of a continuous random variable is the analogue of the probability mass function 𝑝(𝑥) of a discrete random variable
+- Here are two important differences:
+1. Unlike 𝑝(𝑥), the pdf 𝑓(𝑥) is not a probability. You have to integrate it to get probability. (See section 4.2 below.)
+2. Since 𝑓(𝑥) is not a probability, there is no restriction that 𝑓(𝑥) be less than or equal to 1.
+
+
+#### Cumulative Distribution Function
+- The cumulative distribution function (cdf) of a continuous random variable 𝑋 is defined in exactly the same way as the cdf of a discrete random variable
+𝐹(𝑏) = 𝑃(𝑋 ≤ 𝑏).
+- The formula is  $$ F(b)= \int _{-\infty }^{b}f(t)\,dt $$ 
+
+
+### Distributions 
+
+1. Uniform distribution
+2. Exponential Distribution
+3. Normal Distribution
+4. Pareto 
+
+| Distribution | Range $$X$$ | PDF $$f(x)$$ | CDF $$F(x) = P(X \le x)$$ | Mean $$E[X]$$ | Variance $$\text{Var}(X)$$ | Parameters |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Uniform($$a, b$$)** | $$a \le x \le b$$ | $$\frac{1}{b-a}$$ | $$\frac{x-a}{b-a}$$ | $$\frac{a+b}{2}$$ | $$\frac{(b-a)^2}{12}$$ | $$a, b$$ |
+| **Exponential($$\lambda$$)** | $$x \ge 0$$ | $$\lambda e^{-\lambda x}$$ | $$1 - e^{-\lambda x}$$ | $$\frac{1}{\lambda}$$ | $$\frac{1}{\lambda^2}$$ | $$\lambda$$ |
+| **Normal($$\mu, \sigma^2$$)** | $$-\infty < x < \infty$$ | $$\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$ | $$\Phi\left(\frac{x-\mu}{\sigma}\right)$$ * | $$\mu$$ | $$\sigma^2$$ | $$\mu, \sigma^2$$ |
+| **Pareto($$x_m, \alpha$$)** | $$x \ge x_m$$ | $$\frac{\alpha x_m^\alpha}{x^{\alpha+1}}$$ | $$1 - \left(\frac{x_m}{x}\right)^\alpha$$ | $$\frac{\alpha x_m}{\alpha - 1}$$ ($$\alpha > 1$$) | $$\frac{x_m^2 \alpha}{(\alpha - 1)^2 (\alpha - 2)}$$ ($$\alpha > 2$$) | $$x_m, \alpha$$ |
+| **Beta($$\alpha, \beta$$)** | $$0 \le x \le 1$$ | $$\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}$$ | $$I_x(\alpha, \beta)$$ ** | $$\frac{\alpha}{\alpha+\beta}$$ | $$\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$$ | $$\alpha, \beta$$ |
+
+
+
+### Central Limit Theorem
+
+#### Law of large numbers 
+- It states that as you repeat an experiment more and more times (increase the sample size 2 $$n$$), the average of your results will get closer and closer to the expected value (the theoretical truth)
+
+     - The average of many independent samples is (with high probability) close to the mean of the underlying distribution.
+     - The density histogram of many independent samples is (with high probability) close to the graph of the density of the underlying distribution. 
+
+- The central limit theorem says that the sum or average of many independent copies of a random variable is approximately a normal random variable
+
+- It states that if you take large enough samples from a population and calculate the averages of those samples, those averages will form a Normal Distribution, even if the original population is NOT normal.
+
+- If your population has a mean $$\mu$$ and standard deviation $$\sigma$$, then as $$n$$ increases, the distribution of the sample means ($$\bar{X}$$) will approach:$$\bar{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$$
+
 
 
 ### Glossary 
 
 - Discret Sample Space : is one that is listable, it can be either finite or infinite.
-
 - Experiment: a repeatable procedure with well-defined possible outcomes.
 - Sample space: the set of all possible outcomes. We usually denote the sample space by Ω, sometimes by 𝑆.
 - Event: An event is a collection of outcomes, i.e. an event is a subset of the sample space Ω 
@@ -102,24 +321,11 @@ more details : https://ocw.mit.edu/courses/18-05-introduction-to-probability-and
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## FORMULAS 
 
 
 #### Course Reference : 
+
 Course link : https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/ 
 
 The flow chart drive link : <TODO>
