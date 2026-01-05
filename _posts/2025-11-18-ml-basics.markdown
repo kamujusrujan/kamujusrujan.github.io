@@ -54,7 +54,7 @@ Perhaps read this : https://www.behind-the-enemy-lines.com/2008/01/are-you-bayes
 This is _PERMUTATION_ :  $$\mathrm{P}_{k}^{n} = \frac{n!}{(n - k)!} $$  and here the order of events doesnt matter. (abc is just sa same as bca, cab etc)
 
 This is _COMBINATION_ :  $$\mathrm{C}_{k}^{n} = \frac{n!}{k!(n - k)!} $$  and here the order of events doesnt matter. (abc is just sa same as bca, cab etc)
-
+- Can also be represented as $$ \binom{n}{k} $$
 
 #### Independent event 
 - Two events are independent if knowledge or occurance of 1 event doesnt not effect the probability of the other event. (Indepedent of each other)
@@ -285,7 +285,30 @@ All random variables assign a number to each outcome in a sample space. Whereas 
 | **Exponential($$\lambda$$)** | $$x \ge 0$$ | $$\lambda e^{-\lambda x}$$ | $$1 - e^{-\lambda x}$$ | $$\frac{1}{\lambda}$$ | $$\frac{1}{\lambda^2}$$ | $$\lambda$$ |
 | **Normal($$\mu, \sigma^2$$)** | $$-\infty < x < \infty$$ | $$\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$ | $$\Phi\left(\frac{x-\mu}{\sigma}\right)$$ * | $$\mu$$ | $$\sigma^2$$ | $$\mu, \sigma^2$$ |
 | **Pareto($$x_m, \alpha$$)** | $$x \ge x_m$$ | $$\frac{\alpha x_m^\alpha}{x^{\alpha+1}}$$ | $$1 - \left(\frac{x_m}{x}\right)^\alpha$$ | $$\frac{\alpha x_m}{\alpha - 1}$$ ($$\alpha > 1$$) | $$\frac{x_m^2 \alpha}{(\alpha - 1)^2 (\alpha - 2)}$$ ($$\alpha > 2$$) | $$x_m, \alpha$$ |
-| **Beta($$\alpha, \beta$$)** | $$0 \le x \le 1$$ | $$\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}$$ | $$I_x(\alpha, \beta)$$ ** | $$\frac{\alpha}{\alpha+\beta}$$ | $$\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$$ | $$\alpha, \beta$$ |
+| **Beta($$\alpha, \beta$$)** | $$0 \le x \le 1$$ | $$\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}$$ OR $$f(\theta) = \frac{(\alpha + \beta - 1)!}{(\alpha - 1)! (\beta - 1)!} \theta^{\alpha-1} (1 - \theta)^{\beta-1}$$ | $$I_x(\alpha, \beta)$$ ** | $$\frac{\alpha}{\alpha+\beta}$$ | $$\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$$ | $$\alpha, \beta$$ |
+
+
+$$B(\alpha, \beta) = \int_{0}^{1} x^{\alpha-1} (1-x)^{\beta-1} \,dx$$
+
+
+$$F(x) = I_x(\alpha, \beta) = \frac{\int_{0}^{x} t^{\alpha-1}(1-t)^{\beta-1} \,dt}{B(\alpha, \beta)}$$ 
+
+
+### Covariance and Correlation 
+
+- Covariance is a measure of how much two random variables vary together. For example, height and weight of giraffes have positive covariance because when one is big the other tends also to be big.
+
+- Covariance measures direction. It tells you if two variables ($$X$$ and $$Y$$) tend to move in the same direction (positive) or opposite directions (negative)
+
+$$Cov(X, Y) = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{n - 1}$$
+
+$$Cov(X, Y) = E\Big[ (X - E[X]) (Y - E[Y]) \Big]$$
+
+Expectation operator ($$E$$), which represents the mean ($$\mu$$),
+
+- The units of covariance Cov(𝑋, 𝑌 ) are ‘units of 𝑋 times units of 𝑌 ’. This makes it hard to compare covariances: if we change scales then the covariance changes as well. Correlation is a way to remove the scale from the covariance.
+
+$$r = \frac{Cov(X, Y)}{\sigma_X \cdot \sigma_Y}$$
 
 
 
@@ -305,6 +328,110 @@ All random variables assign a number to each outcome in a sample space. Whereas 
 
 
 
+### What is Statistics 
+- Systematic apporach of using the data to make an informed decision. This includes collecting, analysing and inferecing from the raw data. 
+
+
+- We have 2 types 
+     1. Descriptive Stats -> used to make quantitative meansures of the data
+     2. Inferential Stats -> used to infer from small of data (we use Bayes here) 
+
+For the Inferential Statistics : 
+
+- We have a hypothesis, collect data to test the hypothesis and use it to evaluate whether the hypothesis is true. 
+
+$$ P(Hypotheis = true \mid data) = P(data \mid hypothesis = true) * P(hypothesis =  true)  / P(data)  $$
+
+- the parameters on the right can be derived in different ways using Probability laws (additional or multiplicational) OR we can start with an assumption which can be agreed upon 
+
+- $$ P(data \mid hypothesis = true) $$ can be also considered as likelihood function
+
+
+#### Likelihood Function
+
+- All the data has some distributions (both discrete and continous) which are parametric models, which means these data observed are defined based on some parameters of the distribution.
+
+- Here, we will estimate the probability of parameters given a parametric model and observed data drawn from it.  So, given the data, which parameters suits the best is given by Likelihood function.
+
+- We often use PMF or PDF to be the likelihood. (TODO : Need to check why) 
+
+- There are different ways of getting the parameters from the data, one is Maximim Likelihood Function 
+
+- The likelihood column does not sum to 1. The likelihood function is not a probability function.
+
+### Maximum Likelihood Function 
+
+- For which parameter value does the observed data have the biggest probability? 
+
+- Given data the maximum likelihood estimate (MLE) for the parameter 𝑝 is the value of 𝑝 that maximizes the likelihood $$ 𝑃(data \mid 𝑝) $$ . That is, the MLE is the value of 𝑝 for which the data is most like
+
+- Once we have Likelihood function, differentiate and find the parameter of interest to get the maximum output for function. We can do second derivation to check if it is max or min  
+
+- This is a point estimate, it gives the best possible value for an unknown parameter
+
+- We often use Log Likelihood, since it is easier to differentiate. Since $$ ln(x) $$ is an increasing function and max of them will coincide. 
+
+
+### Bayesian Update : 
+
+- Process of going from prior to posterior given the data is called Bayesian Updating. Bayesian updating uses the data to alter our understanding of the probability of each of the possible hypotheses 
+
+$$ P(Hypotheis = true \mid data) = P(data \mid hypothesis = true) * P(hypothesis =  true)  / P(data)  $$
+ 
+- with the data fixed, we get 
+      $$ posterior ∝  likelihood * prior $$ 
+
+- $$ P(hypothesis =  true)  -> prior $$
+- $$ P(data \mid hypothesis = true)  -> likelihood $$
+- $$ P(Hypotheis = true \mid data)  -> posterior $$
+
+- In life we are continually updating our beliefs with each new experience of the world. In Bayesian inference, after updating the prior to the posterior, we can take more data and update again! For the second update, the posterior from the first data becomes the prior for the second data.
+
+- We can get $$ P(data) $$ from the law of total probabaility.
+
+
+For an example : [Example](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class11-prep_pdf/)
+
+#### Odds 
+
+- When comparing two events, it common to phrase probability statements in terms of odds.
+- Definition The odds of event 𝐸 versus event 𝐸′ are the ratio of their probabilities. 
+- If unspecified, the second event is assumed to be the complement 𝐸𝑐. So the odds of 𝐸 are:
+ $$ 𝑂(𝐸) = 𝑃(𝐸) / 𝑃(𝐸^𝑐) $$
+
+More info here : [Lecture](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class12-prep-b_pdf/)
+
+
+### Bayes for continous data 
+
+- Similarly for continous variables or hypothesis, we use PDF instead of PMF for posterior or prior probability predictions 
+- Statement of Bayes’ theorem for continuous pdfs is essentially identical to the statement for pmfs. 
+- We replace Probabilities ($$P$$) with Probability Densities ($$f$$)
+
+
+- $$f(\theta | y) = \frac{f(y | \theta) \cdot f(\theta)}{f(y)}$$
+- $$f(y) = \int_{-\infty}^{\infty} f(y | \theta) \cdot f(\theta) \, d\theta$$
+
+
+#### Conjugate priors
+- The beta distribution is called a conjugate prior for the binomial distribution. This means that if the likelihood function is binomial, then a beta prior gives a beta posterior.
+- In fact, the beta distribution is a conjugate prior for the Bernoulli, binomial and geometric distributions as well.
+- Here is the formal definition: A prior is called conjugate if, when multiplied by the Likelihood (the data), the resulting Posterior distribution is in the same family as the Prior.
+- If you use a conjugate prior, bayesian updating becomes a simple game of arithmetic rather than a complex calculus problem.
+
+| Likelihood (The Data) | Conjugate Prior (Your Belief) | Posterior (The Result) |
+| :--- | :--- | :--- |
+| **Bernoulli / Binomial** | **Beta** | **Beta** |
+| **Geometric** | **Beta** | **Beta** |
+| **Poisson** | **Gamma** | **Gamma** |
+| **Normal** (known variance) | **Normal** | **Normal** |
+| **Exponential** | **Gamma** | **Gamma** |
+
+- [For normal functions](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class15-prep_pdf/). 
+
+[This is the PDF for the above link](/assets/mit18_05_s22_class15-prep.pdf)
+
+
 ### Glossary 
 
 - Discret Sample Space : is one that is listable, it can be either finite or infinite.
@@ -316,7 +443,8 @@ All random variables assign a number to each outcome in a sample space. Whereas 
 - Random variable: a random numerical outcome
 
 
-more details : https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/
+
+more details : [Glossary details](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/)
 
 
 
