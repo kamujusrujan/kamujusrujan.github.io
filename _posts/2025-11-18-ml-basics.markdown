@@ -432,6 +432,36 @@ More info here : [Lecture](https://ocw.mit.edu/courses/18-05-introduction-to-pro
 [This is the PDF for the above link](/assets/mit18_05_s22_class15-prep.pdf)
 
 
+#### Probability Intervals (Credibility Interval) 
+-  A 𝑝-probability interval for 𝜃 is an interval [𝑎, 𝑏] with 𝑃(𝑎 ≤ 𝜃 ≤ 𝑏) = 𝑝.
+- Probability intervals are also called credible intervals to contrast them with confidence intervals, which we will introduce in the frequentist unit.
+- In particular,  the 𝑝-probability interval for 𝜃 is not unique ( Between the 0.05 and 0.55 quantiles is a 0.5 probability interval. There are many 50% probability intervals, e.g. the interval from the 0.25 to the 0.75 quantiles.)
+
+Uses : 
+-  it’s easier to interpret “I think 𝜃 is between 0.45 and 0.65 with 50% probability” than “I think 𝜃 follows a beta(8,6) distribution"
+- Probability intervals also play well with Bayesian updating. If we update from the prior $$𝑓(𝜃)$$ to the posterior $$𝑓(𝜃 \mid 𝑥)$$, then the 𝑝-probability interval for the posterior will tend to be shorter than than the 𝑝-probability interval for the prior. In this sense, the data has made us more certain
+- The thought process is to ask yourself a series of questions, e.g., ‘what is my expected value for 𝜃?’; ‘my 0.5-probability interval?’; ‘my 0.9-probability interval?’. Using this we can construct a prior, and use it in our baysian update. 
+
+
+![Probability intervals for normal distribution](/assets/normal_dist.png) ![Probability intervals for beta distribution](/assets/beta_distribution.png)
+
+Example [here](/assets/mit18_05_s22_class16-prep-b.pdf)
+
+
+### Frequentist Statistis
+
+- When we dont have a universally accepted prior, the frequentist and Bayesian take different approaches to make an inference from data
+
+-  Main philosophical difference concerns the meaning of probability
+     -  frequentist refers to the idea that probabilities represent long term frequencies of repeatable random experiments. As the experiments tends to infinity, the probability will settle at a value. So, the probability will be a fixed value rather than a distribution.
+
+     -  Bayesians are happy to use probability to describe their incomplete knowledge of a fixed parameter.
+
+
+
+![Bayesian vs Frequentist](/assets/Bayesian vs Frequentist.png) 
+
+
 ### Glossary 
 
 - Discret Sample Space : is one that is listable, it can be either finite or infinite.
@@ -441,8 +471,12 @@ More info here : [Lecture](https://ocw.mit.edu/courses/18-05-introduction-to-pro
 - Probability function: a function giving the probability for each outcome
 - Probability density: a continuous distribution of probabilities.
 - Random variable: a random numerical outcome
-
-
+-Point statistic. A point statistic is a single value computed from data. 
+- Interval statistic. An interval statistic is an interval computed from data.
+- Set statistic. A set statistic is a set computed from data
+- Sampling distribution. The probability distribution of a statistic is called its sampling distribution.
+- Point estimate. We can use statistics to make a point estimate of a parameter 𝜃.
+-A statistic is a number you can actually calculate right now using only the data you have in your hands.
 
 more details : [Glossary details](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/)
 
