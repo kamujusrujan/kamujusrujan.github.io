@@ -468,6 +468,7 @@ Example [here](/assets/mit18_05_s22_class16-prep-b.pdf)
 - The logic 
      - We have a sample statistic (which is measurable from the sample experiment), and then measure how likely it is given the null is true. (this is p-value) 
      - If this falls away from our significant value (which is alpha), then we reject the null.
+     - If p value is less than significant, then we can reject $$ H_0 $$
 - The computations done are mostly likelihood operations. 
 
 #### Types of Error : 
