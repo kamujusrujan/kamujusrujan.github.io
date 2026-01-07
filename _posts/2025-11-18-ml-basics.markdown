@@ -496,6 +496,8 @@ $$\alpha = P(\text{Reject } H_0 \mid H_0 \text{ is True})$$
 - $$\text{Power} = P(\text{Reject } H_0 \mid H_A \text{ is True})$$
 
 
+More details : [intro](/assets/mit18_05_s22_class17-prep-b.pdf), [basics](/assets/mit18_05_s22_class18-prep (1).pdf) ,[examples](/assets/mit18_05_s22_class19-prep.pdf)
+
 ### Glossary 
 
 - Discret Sample Space : is one that is listable, it can be either finite or infinite.
