@@ -12,12 +12,14 @@ This is for basically noting down what went wrong, right, and what I can do to i
 Lets start with what all interviews I have given and what are the learnings 
 
 
-1. 247 AI 
-2. Foundation AI 
-3. Some intersting company : very interesting quesitons 
-4. ZEISS 
-5. Meesho
-
+- 247 AI 
+- Foundation AI 
+- Some intersting company : very interesting quesitons 
+- Amazon
+- Pocket FM
+- ZEISS 
+- Meesho
+- No Broker
 
 
 <details>

@@ -462,6 +462,39 @@ Example [here](/assets/mit18_05_s22_class16-prep-b.pdf)
 ![Bayesian vs Frequentist](/assets/Bayesian vs Frequentist.png) 
 
 
+### Null Hypothesis Significance Testing 
+
+- We have null and alternative hypothesis (usually alternative hypothesis is what we want to prove). With this test, we reject the null in the favor of the alternative hypothesis.
+- The logic 
+     - We have a sample statistic (which is measurable from the sample experiment), and then measure how likely it is given the null is true. (this is p-value) 
+     - If this falls away from our significant value (which is alpha), then we reject the null.
+- The computations done are mostly likelihood operations. 
+
+#### Types of Error : 
+
+
+| | **True state of nature** | |
+| :--- | :--- | :--- |
+| **Our decision** | **$$H_0$$** | **$$H_A$$** |
+| **Reject $$H_0$$** | Type I error | Correct decision |
+| **'Don’t reject' $$H_0$$** | Correct decision | Type II error |
+
+**Definitions:**
+* **Type I:** false rejection of $$H_0$$
+* **Type II:** false non-rejection ('acceptance') of $$H_0$$
+
+
+
+####  Significance Level ($$\alpha$$)
+- Probability of Type I Error.
+$$\alpha = P(\text{Reject } H_0 \mid H_0 \text{ is True})$$
+
+#### Power ($$1 - \beta$$)
+- $$1 - P(\text{Type II Error})$$.
+
+- $$\text{Power} = P(\text{Reject } H_0 \mid H_A \text{ is True})$$
+
+
 ### Glossary 
 
 - Discret Sample Space : is one that is listable, it can be either finite or infinite.
@@ -476,7 +509,18 @@ Example [here](/assets/mit18_05_s22_class16-prep-b.pdf)
 - Set statistic. A set statistic is a set computed from data
 - Sampling distribution. The probability distribution of a statistic is called its sampling distribution.
 - Point estimate. We can use statistics to make a point estimate of a parameter 𝜃.
--A statistic is a number you can actually calculate right now using only the data you have in your hands.
+- A statistic is a number you can actually calculate right now using only the data you have in your hands.
+- Null hypothesis ($$H_o$$) :  This is the default assumption for the model generating the
+data.
+- Alternative hypothesis ($$H_A$$) . If we reject the null hypothesis we accept this alternative as the best explanation for the data.
+- Test statistic. We compute this from the data. It is a random variable, because it is computed from random data.
+- Null distribution : the probability distribution of 𝑋 assuming 𝐻0.
+- Rejection region: if 𝑋 is in the rejection region we reject 𝐻0 in favor of 𝐻𝐴.
+- Non-rejection region: the complement to the rejection region.
+- Simple hypothesis: A simple hypothesis is one for which we can specify its distribution completely. A typical simple hypothesis is that a parameter of interest takes a specific value.
+- Composite hypotheses: If its distribution cannot be fully specified, we say that the hypothesis is composite. A typical composite hypothesis is that a parameter of interest lies in a range of values
+
+
 
 more details : [Glossary details](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/)
 
